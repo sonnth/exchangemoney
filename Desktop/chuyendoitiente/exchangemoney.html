@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>exchange</title>
+</head>
+<body>
+<form>
+    Amount:<br>
+    <input id="txtAmount" type="text" name="VND"><br>
+    From Currency:<br>
+    <select id="ddlCurrency">
+        <option value="USD">USD</option>
+        <option value="EURO">EURO</option>
+        <option value="GBP">GBP</option>
+    </select><br>
+
+
+    <button id="btnTinhtoan" type="button" onclick="tinh();">Tinh toan
+
+    </button>
+    To VND:<br>
+    <label id="lblVND">
+
+    </label>
+</form>
+<script>
+    function tinh() {
+        let txtAmount = document.getElementById('txtAmount');
+        let lblVND = document.getElementById('lblVND');
+
+        let ddlCurrency = document.getElementById("ddlCurrency");
+        let selectedCCY = ddlCurrency.options[ddlCurrency.selectedIndex].value;
+
+        let res=0;
+        if (selectedCCY == 'USD') {
+            res = parseInt(txtAmount.value) * 22;
+
+        } else if (selectedCCY == 'EURO') {
+            res = parseInt(txtAmount.value) * 30;
+        }
+            else if (selectedCCY == 'GBP') {
+            res = parseInt(txtAmount.value) * 35;
+        }
+        lblVND.innerHTML = res.toString();
+    }
+
+
+</script>
+</body>
+</html>
